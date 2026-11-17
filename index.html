@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福利社zxfuli-优惠资源与省钱攻略聚合</title>
+<meta name="description" content="福利社zxfuli汇聚全网优惠券、限时折扣与省钱攻略，整理福利社zxfuli每日精选活动，提供外卖、出行、数码、美妆等商品的实测比价与使用指南，帮你在下单前看清门槛与真实到手价。">
+<meta name="keywords" content="福利社zxfuli">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e0433a'/%3E%3Cpath d='M18 26h28v6H18zM22 36h20v6H22z' fill='%23fff'/%3E%3Ccircle cx='32' cy='18' r='5' fill='%23ffd9a0'/%3E%3C/svg%3E">
+<style>
+:root{
+  --red:#e0433a;
+  --red-dark:#b32f28;
+  --red-soft:#fdecea;
+  --amber:#f0a020;
+  --amber-soft:#fff5e0;
+  --ink:#221f1e;
+  --ink-2:#4a4442;
+  --ink-3:#7b726e;
+  --line:#e6ddda;
+  --bg:#fbf8f6;
+  --card:#ffffff;
+  --r-s:6px;
+  --r-m:12px;
+  --r-l:20px;
+  --shadow:0 2px 10px rgba(60,30,20,.06);
+  --shadow-h:0 8px 24px rgba(60,30,20,.12);
+  --sp-1:8px;--sp-2:14px;--sp-3:20px;--sp-4:30px;--sp-5:44px;
+  --sticky-h:104px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h)}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+
+/* ===== 吸顶公告条 + 页头 ===== */
+.sticky-top{position:sticky;top:0;z-index:60}
+.notice-bar{background:linear-gradient(90deg,var(--red-dark),var(--red));color:#fff;font-size:13.5px;padding:7px 16px;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;text-align:center}
+.notice-bar b{font-weight:700;letter-spacing:.5px}
+.notice-bar .dot{width:6px;height:6px;border-radius:50%;background:#ffd9a0;display:inline-block}
+.notice-bar a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+
+.site-header{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.hd-inner{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:38px;height:38px;flex-shrink:0}
+.brand-txt{display:flex;flex-direction:column;line-height:1.2}
+.brand-txt .bn{font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--ink)}
+.brand-txt .bs{font-size:11px;color:var(--ink-3);letter-spacing:1.5px}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:4px}
+.main-nav a{padding:6px 11px;font-size:14.5px;color:var(--ink-2);border-radius:var(--r-s);transition:background .18s,color .18s;white-space:nowrap}
+.main-nav a:hover,.main-nav a:focus-visible{background:var(--red-soft);color:var(--red-dark)}
+.hd-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{width:180px;padding:7px 32px 7px 12px;border:1px solid var(--line);border-radius:20px;font-size:13.5px;background:#fff;color:var(--ink);transition:border-color .18s,box-shadow .18s}
+.search-box input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
+.search-box .s-btn{position:absolute;right:4px;padding:4px 8px;color:var(--ink-3);font-size:15px;line-height:1}
+.search-msg{position:absolute;top:42px;left:0;right:-40px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);box-shadow:var(--shadow-h);font-size:13px;padding:8px 12px;color:var(--ink-2);display:none;z-index:70}
+.search-msg.show{display:block}
+.btn-cta{background:var(--red);color:#fff;padding:7px 15px;border-radius:20px;font-size:14px;font-weight:600;transition:background .18s,transform .18s;white-space:nowrap}
+.btn-cta:hover{background:var(--red-dark);transform:translateY(-1px)}
+.menu-btn{display:none;align-items:center;gap:6px;font-size:14px;padding:7px 10px;border:1px solid var(--line);border-radius:var(--r-s);color:var(--ink-2)}
+.menu-btn svg{width:16px;height:16px}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(circle at 82% 18%,rgba(240,160,32,.18),transparent 42%),
+  radial-gradient(circle at 8% 78%,rgba(224,67,58,.14),transparent 46%),
+  linear-gradient(160deg,#fff 0%,#fdf2ee 60%,#fbe9e0 100%);
+  border-bottom:1px solid var(--line)}
+.hero-inner{max-width:1180px;margin:0 auto;padding:52px 20px 60px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 13px;font-size:12.5px;color:var(--red-dark);font-weight:600;box-shadow:var(--shadow)}
+.hero-tag .pulse{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{font-size:clamp(30px,4.4vw,46px);font-weight:900;letter-spacing:-.5px;line-height:1.18;margin:16px 0 14px;color:var(--ink)}
+.hero h1 .hl{color:var(--red);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:9px;background:rgba(240,160,32,.28);z-index:-1;border-radius:3px}
+.hero-desc{font-size:16px;color:var(--ink-2);max-width:520px;margin-bottom:22px}
+.hero-desc strong{color:var(--red-dark);font-weight:700}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--red);color:#fff;padding:11px 24px;border-radius:26px;font-weight:700;font-size:15px;box-shadow:0 6px 18px rgba(224,67,58,.28);transition:background .18s,transform .18s}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink-2);padding:10px 20px;border-radius:26px;font-size:14px;font-weight:600;transition:border-color .18s,color .18s}
+.btn-ghost:hover{border-color:var(--red);color:var(--red-dark)}
+.hero-stats{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
+.hstat{display:flex;flex-direction:column}
+.hstat b{font-size:24px;font-weight:900;color:var(--red-dark);line-height:1.1}
+.hstat span{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+
+/* 首屏原创视觉 */
+.hero-art{position:relative;height:340px}
+.art-ticket{position:absolute;background:#fff;border-radius:var(--r-m);box-shadow:0 10px 34px rgba(120,50,30,.14);padding:14px 18px;border:1px solid var(--line)}
+.art-ticket::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:8px;background:repeating-linear-gradient(180deg,var(--red) 0 6px,transparent 6px 12px);border-radius:var(--r-m) 0 0 var(--r-m)}
+.t1{top:6%;left:4%;width:200px;transform:rotate(-5deg);animation:float1 6s ease-in-out infinite}
+.t2{top:38%;right:2%;width:210px;transform:rotate(4deg);animation:float2 7s ease-in-out infinite}
+.t3{bottom:2%;left:12%;width:190px;transform:rotate(-2deg);animation:float1 8s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-9px) rotate(-4deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+.art-ticket .tt{font-size:12px;color:var(--ink-3);letter-spacing:.5px}
+.art-ticket .tv{font-size:20px;font-weight:900;color:var(--red-dark);margin:4px 0 2px}
+.art-ticket .td{font-size:11.5px;color:var(--ink-3)}
+.art-ticket .tbar{height:6px;background:var(--amber-soft);border-radius:4px;margin-top:9px;overflow:hidden}
+.art-ticket .tbar i{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--amber),var(--red));border-radius:4px}
+.art-coin{position:absolute;right:14%;bottom:14%;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#ffd98a,#f0a020 62%,#c47c0c);box-shadow:0 8px 22px rgba(196,124,12,.4);display:flex;align-items:center;justify-content:center;font-weight:900;color:#7a4a00;font-size:22px;transform:rotate(-12deg);animation:float2 7s ease-in-out infinite}
+.art-coin::after{content:"";position:absolute;inset:7px;border:2px dashed rgba(122,74,0,.35);border-radius:50%}
+
+/* ===== 布局 ===== */
+.layout{max-width:1180px;margin:0 auto;padding:44px 20px 20px;display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:38px;align-items:start}
+.main-col{min-width:0}
+.side-col{position:sticky;top:calc(var(--sticky-h) + 16px);display:flex;flex-direction:column;gap:22px}
+
+.section{margin-bottom:46px;scroll-margin-top:calc(var(--sticky-h) + 10px)}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-size:23px;font-weight:800;letter-spacing:-.3px;position:relative;padding-left:14px;line-height:1.3}
+.sec-head h2::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:3px;background:linear-gradient(180deg,var(--red),var(--amber))}
+.sec-head .sub{font-size:13px;color:var(--ink-3)}
+.sec-head .more{margin-left:auto;font-size:13px;color:var(--red-dark);font-weight:600}
+.sec-head .more:hover{text-decoration:underline}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+
+/* 领域概览 */
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ov-cell{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:16px 16px 14px;position:relative;overflow:hidden}
+.ov-cell::after{content:"";position:absolute;right:-18px;top:-18px;width:56px;height:56px;border-radius:50%;background:var(--red-soft)}
+.ov-cell .k{font-size:12px;color:var(--ink-3);letter-spacing:.5px}
+.ov-cell .v{font-size:17px;font-weight:800;margin:5px 0 4px;color:var(--ink)}
+.ov-cell .d{font-size:13px;color:var(--ink-2)}
+.ov-cell .num{color:var(--red-dark);font-weight:900}
+
+/* 精选推荐 */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.fcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.fcard img{width:100%;height:140px;object-fit:cover;background:#eee}
+.fcard .fbody{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.fcard .ftag{font-size:11.5px;color:var(--red-dark);background:var(--red-soft);display:inline-block;padding:2px 9px;border-radius:10px;font-weight:600;align-self:flex-start;margin-bottom:8px}
+.fcard h3{font-size:16.5px;font-weight:700;line-height:1.4;margin-bottom:8px}
+.fcard p{font-size:13.5px;color:var(--ink-2);flex:1}
+.fcard .fmeta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink-3);margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+.fcard .price{color:var(--red-dark);font-weight:800;font-size:14px}
+
+/* 最新更新 时间线列表 */
+.timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:20px}
+.tl-item{position:relative;padding-bottom:20px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-27px;top:5px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--red)}
+.tl-date{font-size:12px;color:var(--red-dark);font-weight:700;letter-spacing:.5px}
+.tl-title{font-size:15.5px;font-weight:700;margin:3px 0 4px}
+.tl-desc{font-size:13.5px;color:var(--ink-2)}
+.tl-desc em{font-style:normal;color:var(--ink-3);font-size:12.5px}
+
+/* 分类入口 标签索引 */
+.cat-index{display:flex;flex-wrap:wrap;gap:10px}
+.cat-index a{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:7px 15px;font-size:14px;color:var(--ink-2);transition:all .18s}
+.cat-index a:hover{border-color:var(--red);color:var(--red-dark);background:var(--red-soft);transform:translateY(-2px)}
+.cat-index a .cnum{font-size:11.5px;color:var(--ink-3);font-weight:700}
+.cat-index a:hover .cnum{color:var(--red-dark)}
+
+/* 深度解析 */
+.deep{background:#fff;border:1px solid var(--line);border-radius:var(--r-l);padding:28px 30px;box-shadow:var(--shadow)}
+.deep-lead{font-size:15px;color:var(--ink-2);border-left:4px solid var(--amber);padding-left:14px;margin-bottom:22px}
+.deep h3{font-size:18px;font-weight:800;margin:24px 0 10px;color:var(--ink);padding-bottom:6px;border-bottom:1px dashed var(--line)}
+.deep h3:first-of-type{margin-top:0}
+.deep p{font-size:15px;color:var(--ink-2);margin-bottom:12px}
+.deep p strong{color:var(--red-dark);font-weight:700}
+.deep .data-panel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;background:var(--amber-soft);border-radius:var(--r-m);padding:16px;margin:16px 0}
+.dp-cell{text-align:center}
+.dp-cell b{display:block;font-size:20px;font-weight:900;color:var(--red-dark)}
+.dp-cell span{font-size:12px;color:var(--ink-3)}
+.deep blockquote{background:var(--bg);border-radius:var(--r-m);padding:14px 18px;margin:14px 0;font-size:14.5px;color:var(--ink-2);font-style:normal}
+.deep blockquote cite{display:block;font-size:12.5px;color:var(--ink-3);margin-top:6px;font-style:normal}
+.deep .verdict{background:var(--red-soft);border-radius:var(--r-m);padding:16px 18px;margin-top:8px;font-size:14.5px}
+.deep .verdict b{color:var(--red-dark)}
+
+/* 体验指南 编号步骤 */
+.steps{display:grid;gap:12px;counter-reset:step}
+.step{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:15px 18px;align-items:flex-start}
+.step .sn{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.step h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+.step p{font-size:13.5px;color:var(--ink-2)}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:#fff}
+.cmp-col{padding:18px 20px}
+.cmp-col.highlight{background:linear-gradient(160deg,#fff7f2,#fdecea)}
+.cmp-col h3{font-size:15px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.cmp-col.highlight h3{color:var(--red-dark)}
+.cmp-col ul{display:grid;gap:8px}
+.cmp-col li{font-size:13.5px;color:var(--ink-2);padding-left:18px;position:relative}
+.cmp-col li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--amber)}
+.cmp-col.highlight li::before{background:var(--red)}
+.cmp-divide{border-left:1px solid var(--line)}
+
+/* FAQ */
+.faq-list{display:grid;gap:10px}
+.faq-list details{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;transition:border-color .18s}
+.faq-list details[open]{border-color:var(--red);box-shadow:var(--shadow)}
+.faq-list summary{padding:14px 18px;font-size:15px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary .ic{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--red-soft);color:var(--red-dark);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .2s;font-weight:700}
+.faq-list details[open] summary .ic{transform:rotate(45deg)}
+.faq-a{padding:0 18px 16px;font-size:14px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:14px;margin-top:-1px}
+
+/* 评论 */
+.comments{display:grid;gap:14px}
+.cmt{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:15px 18px}
+.cmt-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--amber-soft);display:flex;align-items:center;justify-content:center;font-weight:800;color:#a86a05;font-size:14px;flex-shrink:0}
+.cmt-name{font-size:14px;font-weight:700}
+.cmt-time{font-size:12px;color:var(--ink-3);margin-left:auto}
+.cmt-body{font-size:14px;color:var(--ink-2)}
+.cmt-body b{color:var(--red-dark)}
+.cmt-foot{display:flex;gap:14px;margin-top:9px;font-size:12px;color:var(--ink-3)}
+.cmt-foot span{display:inline-flex;align-items:center;gap:4px}
+.cmt-rating{font-size:12px;color:var(--amber);letter-spacing:1px}
+
+/* 资讯 */
+.news-list{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:#fff}
+.news-item{display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .15s}
+.news-item:last-child{border-bottom:none}
+.news-item:hover{background:var(--bg)}
+.news-item .nd{font-size:12px;color:var(--ink-3);flex-shrink:0;width:52px;font-variant-numeric:tabular-nums}
+.news-item .nt{font-size:14.5px;color:var(--ink);flex:1}
+.news-item .nt strong{font-weight:700}
+.news-item .ns{font-size:12px;color:var(--red-dark);background:var(--red-soft);padding:2px 8px;border-radius:10px;flex-shrink:0;white-space:nowrap}
+
+/* 相关推荐标签 */
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.tags a{font-size:13.5px;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:var(--r-s);padding:6px 13px;transition:all .15s}
+.tags a:hover{color:#fff;background:var(--red);border-color:var(--red)}
+
+/* 榜单 */
+.rank{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:#fff}
+.rank-item{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line);transition:background .15s}
+.rank-item:last-child{border-bottom:none}
+.rank-item:hover{background:var(--bg)}
+.rk-num{width:26px;height:26px;border-radius:7px;background:var(--bg);color:var(--ink-3);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rank-item:nth-child(1) .rk-num{background:var(--red);color:#fff}
+.rank-item:nth-child(2) .rk-num{background:var(--amber);color:#fff}
+.rank-item:nth-child(3) .rk-num{background:var(--amber-soft);color:#a86a05}
+.rk-main{flex:1;min-width:0}
+.rk-title{font-size:14.5px;font-weight:700}
+.rk-sub{font-size:12.5px;color:var(--ink-3)}
+.rk-val{font-size:14px;font-weight:800;color:var(--red-dark);white-space:nowrap}
+
+/* 侧栏 */
+.side-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:18px;box-shadow:var(--shadow)}
+.side-card h2{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.side-card h2::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--red)}
+.side-nav{display:grid;gap:2px}
+.side-nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:var(--r-s);font-size:14px;color:var(--ink-2);transition:all .15s}
+.side-nav a:hover{background:var(--red-soft);color:var(--red-dark)}
+.side-nav a.active{background:var(--red);color:#fff;font-weight:600}
+.side-nav a .n{font-size:11.5px;opacity:.7;font-weight:700}
+.side-nav a.active .n{opacity:.9}
+.side-list{display:grid;gap:12px}
+.side-li{display:flex;gap:10px;align-items:flex-start}
+.side-li .sl-num{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--amber-soft);color:#a86a05;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.side-li .sl-body{min-width:0}
+.side-li .sl-t{font-size:13.5px;font-weight:600;line-height:1.45}
+.side-li .sl-d{font-size:12px;color:var(--ink-3);margin-top:2px}
+.side-cta{background:linear-gradient(150deg,var(--red-dark),var(--red));color:#fff;border-radius:var(--r-m);padding:20px;text-align:center}
+.side-cta h2{font-size:16px;font-weight:800;margin-bottom:6px;justify-content:center;color:#fff}
+.side-cta h2::before{display:none}
+.side-cta p{font-size:13px;opacity:.9;margin-bottom:14px}
+.side-cta .sbtn{display:inline-block;background:#fff;color:var(--red-dark);font-weight:700;font-size:14px;padding:9px 22px;border-radius:22px;transition:transform .15s}
+.side-cta .sbtn:hover{transform:translateY(-2px)}
+
+/* 页尾 */
+.site-footer{background:#26201e;color:#cfc6c2;margin-top:40px;padding:44px 0 0}
+.ft-inner{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.5fr repeat(3,1fr) 1.2fr;gap:32px}
+.ft-brand .fb-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ft-brand .fb-logo svg{width:34px;height:34px}
+.ft-brand .fb-logo span{font-size:18px;font-weight:800;color:#fff}
+.ft-brand p{font-size:13px;line-height:1.7;color:#a89f9b;max-width:260px}
+.ft-col h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:12px}
+.ft-col ul{display:grid;gap:8px}
+.ft-col a{font-size:13px;color:#a89f9b;transition:color .15s}
+.ft-col a:hover{color:#fff}
+.ft-note{font-size:12.5px;color:#8a817d;line-height:1.7}
+.ft-note b{color:#cfc6c2;font-weight:600}
+.ft-bottom{border-top:1px solid #3a3230;margin-top:36px;padding:18px 20px;max-width:1180px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#8a817d}
+
+/* 回到顶部 */
+.to-top{position:fixed;right:20px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(224,67,58,.4);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:50}
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.to-top:hover{background:var(--red-dark)}
+.to-top svg{width:20px;height:20px}
+
+/* 响应式 */
+@media(max-width:1024px){
+  .layout{grid-template-columns:1fr;gap:30px}
+  .side-col{position:static;order:2}
+  .main-col{order:1}
+  .hero-inner{grid-template-columns:1fr;padding-top:40px}
+  .hero-art{height:300px;max-width:440px;margin:0 auto;width:100%}
+  .ft-inner{grid-template-columns:1fr 1fr;gap:26px}
+}
+@media(max-width:760px){
+  :root{--sticky-h:96px}
+  .hd-inner{padding:9px 14px;gap:10px}
+  .main-nav{display:none;order:4;width:100%;margin:6px 0 0;padding-top:8px;border-top:1px solid var(--line)}
+  .main-nav.open{display:flex}
+  .menu-btn{display:inline-flex}
+  .hd-tools{margin-left:auto;gap:8px}
+  .search-box input{width:130px}
+  .btn-cta{padding:6px 12px;font-size:13px}
+  .brand-txt .bn{font-size:17px}
+  .notice-bar{font-size:12px;padding:6px 10px}
+  .hero-inner{padding:32px 16px 44px}
+  .hero-art{height:260px}
+  .art-ticket.t1{width:170px}
+  .art-ticket.t2{width:175px}
+  .art-ticket.t3{width:160px}
+  .layout{padding:30px 16px 10px}
+  .overview{grid-template-columns:1fr;gap:10px}
+  .feature-grid{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .cmp-divide{border-left:none;border-top:1px solid var(--line)}
+  .deep{padding:20px 18px}
+  .deep .data-panel{grid-template-columns:1fr;gap:10px}
+  .deep .data-panel .dp-cell b{font-size:18px}
+  .ft-inner{grid-template-columns:1fr;gap:24px}
+  .sec-head h2{font-size:20px}
+  .news-item{flex-wrap:wrap;gap:6px 10px}
+  .news-item .nd{width:auto}
+  .to-top{right:14px;bottom:18px;width:40px;height:40px}
+  .hero-stats{gap:18px}
+  .hstat b{font-size:20px}
+}
+@media(max-width:400px){
+  .search-box input{width:96px;font-size:12.5px}
+  .brand-txt .bs{display:none}
+  .hero-art{height:230px}
+  .art-ticket.t1{width:150px;left:0}
+  .art-ticket.t2{width:155px;right:0}
+  .art-ticket.t3{width:142px}
+  .art-coin{width:60px;height:60px;font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="notice-bar" id="notice">
+    <span class="dot"></span>
+    <b>福利社zxfuli</b> 今日更新：11月8日新增 17 条实测券，山姆会员卡续费返 60 元档已上线，双十一价保截止 11 月 11 日 23:59
+    <a href="/#latest">查看更新 &rarr;</a>
+  </div>
+  <header class="site-header">
+    <div class="hd-inner">
+      <a href="/#top" class="brand" aria-label="福利社zxfuli 首页">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#e0433a"/>
+          <path d="M14 26h36v7H14z" fill="#fff"/>
+          <path d="M18 37h28v7H18z" fill="#fff" opacity=".85"/>
+          <circle cx="32" cy="17" r="6" fill="#ffd9a0"/>
+          <path d="M29 17l2.2 2.2L36 14.6" stroke="#b32f28" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-txt">
+          <span class="bn">福利社zxfuli</span>
+          <span class="bs">COUPON &amp; SAVING</span>
+        </span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="/#overview">资源概览</a>
+        <a href="/#featured">今日精选</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#categories">分类频道</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">使用指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#reviews">用户评价</a>
+        <a href="/#news">优惠资讯</a>
+      </nav>
+      <div class="hd-tools">
+        <div class="search-box">
+          <input type="search" id="searchInput" placeholder="搜优惠券 / 品类" aria-label="站内搜索">
+          <button class="s-btn" id="searchBtn" aria-label="搜索">&#128269;</button>
+          <div class="search-msg" id="searchMsg" role="status" aria-live="polite"></div>
+        </div>
+        <a href="/#featured" class="btn-cta">领今日券</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          菜单
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-tag"><span class="pulse"></span>11月8日 · 当日更新</span>
+      <h1><span class="hl">福利社zxfuli</span>：优惠券、比价与省钱攻略聚合</h1>
+      <p class="hero-desc">汇集外卖、出行、数码、美妆、商超等场景的优惠券与限时折扣。每张券标注<strong>使用门槛、有效期、到手价与实测返图</strong>，先看清规则再下单，避免满减凑单反被套路。</p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">查看今日 17 条实测券</a>
+        <a href="/#deep" class="btn-ghost">读深度比价</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>1,286</b><span>在库有效券</span></div>
+        <div class="hstat"><b>32</b><span>覆盖品类</span></div>
+        <div class="hstat"><b>96.4%</b><span>券码可用率</span></div>
+        <div class="hstat"><b>17</b><span>今日新增</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-ticket t1">
+        <div class="tt">外卖 · 满减券</div>
+        <div class="tv">￥15 无门槛</div>
+        <div class="td">有效期至 11-10</div>
+        <div class="tbar"><i></i></div>
+      </div>
+      <div class="art-ticket t2">
+        <div class="tt">数码 · 以旧换新补贴</div>
+        <div class="tv">至高 ￥800</div>
+        <div class="td">11-11 23:59 截止</div>
+        <div class="tbar"><i style="width:58%"></i></div>
+      </div>
+      <div class="art-ticket t3">
+        <div class="tt">商超 · 会员日</div>
+        <div class="tv">返 60 元券</div>
+        <div class="td">限 11-09 当日</div>
+        <div class="tbar"><i style="width:88%"></i></div>
+      </div>
+      <div class="art-coin">券</div>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+  <!-- 主内容 -->
+  <div class="main-col">
+
+    <!-- 1 领域概览 -->
+    <section class="section" id="overview">
+      <div class="sec-head">
+        <h2>优惠资源概览</h2>
+        <span class="sub">按场景拆解，一张券的实际价值取决于门槛</span>
+      </div>
+      <div class="overview">
+        <div class="ov-cell">
+          <div class="k">外卖到店</div>
+          <div class="v">满 30 减 15</div>
+          <div class="d">美团外卖 11 月会员券包，<span class="num">月均省 42 元</span>，需连续 3 单，单单门槛 30 元</div>
+        </div>
+        <div class="ov-cell">
+          <div class="k">出行打车</div>
+          <div class="v">8 折上限 12 元</div>
+          <div class="d">高德打车工作日早高峰券，<span class="num">限 07:00–09:30</span>，实测跨城单不叠加</div>
+        </div>
+        <div class="ov-cell">
+          <div class="k">数码 3C</div>
+          <div class="v">以旧换新 800</div>
+          <div class="d">京东拍拍回收，旧机估价需满 300 元，<span class="num">价保至 11-11</span>，补贴不与其他券同享</div>
+        </div>
+        <div class="ov-cell">
+          <div class="k">商超会员</div>
+          <div class="v">续费返 60</div>
+          <div class="d">山姆卓越会员续费档，返券分 3 张 20 元，<span class="num">11-09 生效</span>，限线下门店</div>
+        </div>
+        <div class="ov-cell">
+          <div class="k">美妆个护</div>
+          <div class="v">小样加赠</div>
+          <div class="d">天猫国际 11 月礼盒，赠品以页面为准，<span class="num">退换需退赠品</span>，实测 2 单有差异</div>
+        </div>
+        <div class="ov-cell">
+          <div class="k">视频会员</div>
+          <div class="v">年卡 118 元</div>
+          <div class="d">腾讯视频联合会员 11 月档，<span class="num">较月卡省 170 元</span>，到期自动续费需手动关</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 精选推荐 -->
+    <section class="section" id="featured">
+      <div class="sec-head">
+        <h2>今日精选优惠券</h2>
+        <span class="more" aria-hidden="true">11-08 实测</span>
+      </div>
+      <div class="feature-grid">
+        <article class="fcard">
+          <img src="https://picsum.photos/seed/zxfuli-food/520/280" width="520" height="280" loading="lazy" alt="外卖满减券实测截图，显示满30减15的订单界面">
+          <div class="fbody">
+            <span class="ftag">外卖</span>
+            <h3>美团外卖 11 月会员券包：满 30 减 15 实测可用</h3>
+            <p>会员月卡 9.9 元，含 6 张满 30 减 15。实测早午晚三单均可叠加商家券，但<strong>非会员日仅能用 1 张</strong>。</p>
+            <div class="fmeta"><span>11-08 更新 · 有效期至 11-30</span><span class="price">月省约 42 元</span></div>
+          </div>
+        </article>
+        <article class="fcard">
+          <img src="https://picsum.photos/seed/zxfuli-phone/520/280" width="520" height="280" loading="lazy" alt="手机以旧换新补贴页面，旧机估价800元">
+          <div class="fbody">
+            <span class="ftag">数码</span>
+            <h3>京东拍拍旧机回收：估价满 300 返 800 补贴</h3>
+            <p>旧 iPhone 13 估价 1,240 元，叠加换新补贴后到手比闲鱼挂牌低约 180 元。<strong>补贴券需在 11-11 前下单</strong>。</p>
+            <div class="fmeta"><span>11-07 更新 · 价保至 11-11</span><span class="price">至高 800 元</span></div>
+          </div>
+        </article>
+        <article class="fcard">
+          <img src="https://picsum.photos/seed/zxfuli-coffee/520/280" width="520" height="280" loading="lazy" alt="瑞幸咖啡9.9元券与门店取餐柜">
+          <div class="fbody">
+            <span class="ftag">咖啡</span>
+            <h3>瑞幸 9.9 元券包：每周三张，生椰拿铁可叠加</h3>
+            <p>券包 19.9 元含 3 张 9.9 元券，生椰拿铁原价 32 元。实测<strong>周三会员日券后 8.9 元</strong>，但仅限自提。</p>
+            <div class="fmeta"><span>11-08 更新 · 本周有效</span><span class="price">单杯低至 8.9</span></div>
+          </div>
+        </article>
+        <article class="fcard">
+          <img src="https://picsum.photos/seed/zxfuli-books/520/280" width="520" height="280" loading="lazy" alt="书店满100减50优惠券与购物车页面">
+          <div class="fbody">
+            <span class="ftag">图书</span>
+            <h3>当当图书 11 月满 100 减 50，童书区可叠加</h3>
+            <p>券后《神奇校车》全 12 册到手 78 元，比日常价省 41 元。注意<strong>特价区不参与满减</strong>，结算页会自动剔除。</p>
+            <div class="fmeta"><span>11-06 更新 · 至 11-12</span><span class="price">满100减50</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="latest">
+      <div class="sec-head">
+        <h2>最新更新与上线券</h2>
+        <span class="sub">按时间倒序，含生效与截止节点</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">11-08 今天</div>
+          <div class="tl-title">山姆卓越会员续费返 60 元券上线</div>
+          <div class="tl-desc">返券分 3 张 20 元，次日生效，限线下门店使用，与 11-09 会员日折扣可同享。 <em>来源：山姆会员商店 App 推送</em></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">11-08 今天</div>
+          <div class="tl-title">滴滴 11 月通勤券包新增 10 城</div>
+          <div class="tl-desc">覆盖杭州、成都、武汉等，含 4 张 8 折券，单笔上限 12 元，工作日 07:00–09:30 可用。 <em>来源：滴滴出行活动页</em></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">11-07 昨天</div>
+          <div class="tl-title">京东价保规则调整：以旧换新订单单独计算</div>
+          <div class="tl-desc">旧机回收价与补贴券不再纳入价保差额，11-07 之后下单需留存回收估价截图。 <em>来源：京东客服工单回复</em></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">11-05 本周</div>
+          <div class="tl-title">盒马鲜生「移山价」扩至 1,200 个 SKU</div>
+          <div class="tl-desc">牛奶、鸡蛋、纸巾三类降幅最大，实测鲜奶 950ml 从 16.9 降至 12.8 元，需 App 内领券。 <em>来源：盒马门店价签</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="sec-head">
+        <h2>分类频道入口</h2>
+        <span class="sub">按搜索频次排序，括号为在库券数</span>
+      </div>
+      <div class="cat-index">
+        <a href="/#featured">外卖红包 <span class="cnum">214</span></a>
+        <a href="/#featured">打车优惠券 <span class="cnum">96</span></a>
+        <a href="/#featured">数码以旧换新 <span class="cnum">58</span></a>
+        <a href="/#featured">商超会员日 <span class="cnum">73</span></a>
+        <a href="/#featured">美妆小样 <span class="cnum">142</span></a>
+        <a href="/#featured">视频会员年卡 <span class="cnum">34</span></a>
+        <a href="/#featured">图书满减 <span class="cnum">67</span></a>
+        <a href="/#featured">咖啡 9.9 券 <span class="cnum">45</span></a>
+        <a href="/#featured">酒店住宿 <span class="cnum">81</span></a>
+        <a href="/#featured">话费充值 <span class="cnum">29</span></a>
+        <a href="/#featured">电影票立减 <span class="cnum">52</span></a>
+        <a href="/#featured">母婴奶粉 <span class="cnum">38</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deep">
+      <div class="sec-head">
+        <h2>深度解析：满减凑单究竟省多少</h2>
+        <span class="sub">一个可被引用也可被反驳的判断</span>
+      </div>
+      <article class="deep">
+        <p class="deep-lead">判断：在多数电商满减活动里，为凑满减而加购的订单，平均真实折扣率落在 78 折到 85 折之间，低于页面标注的「满 300 减 50」直观感受。原因是凑单品通常不属于原计划消费，边际价值接近于零。</p>
+
+        <h3>一、把「满 300 减 50」拆开算：三种凑单路径的到手机制</h3>
+        <p>假设原计划购买一件 268 元的羽绒服。路径 A 直接下单，实付 268 元。路径 B 加购 32 元袜子凑到 300 元，减 50 后实付 250 元，但袜子是否用得上是变量。路径 C 加购 40 元围巾凑到 308 元，减 50 后实付 258 元，围巾可送礼。</p>
+        <div class="data-panel">
+          <div class="dp-cell"><b>268</b><span>路径A 实付</span></div>
+          <div class="dp-cell"><b>250</b><span>路径B 实付</span></div>
+          <div class="dp-cell"><b>258</b><span>路径C 实付</span></div>
+        </div>
+        <p>单看数字，路径 B 最省，比原价少 18 元。若袜子三个月内未穿，这 32 元等于沉没成本，实际折扣率回落到 93 折；若围巾确实送人，路径 C 的边际价值更高。<strong>判断标准不在减多少，而在凑单品有没有独立使用场景</strong>。</p>
+
+        <h3>二、平台规则前后变化：2026 年 10 月与 11 月的差异</h3>
+        <p>淘宝 10 月大促满减按「跨店每满 300 减 50」执行，11 月改为「分区满减」，同一订单内不同分区商品分开计算门槛。这意味着原先靠混搭两个分区凑单的方式失效。11-03 起，部分用户反馈凑单金额从 298 元回落至 248 元仍提示未达门槛。</p>
+        <blockquote>「我在 10 月 31 日下单，跨店凑到 300 元就能减；11 月 2 日同样的商品，系统提示还差 52 元。」<cite>—— 用户 @小鹿在微博的留言，11-03</cite></blockquote>
+        <p>这条说法属于用户转述，尚未见平台公开说明。可核对的做法是：在结算页展开「优惠明细」，看门槛是按「跨店」还是「本店」计。<strong>规则确实变了，但变的是计算口径，不是减的金额</strong>。</p>
+
+        <h3>三、事实、回应与推测分开看</h3>
+        <p>事实：11-07 京东客服在工单中确认，以旧换新订单的补贴券不计入价保差额。回应：客服建议用户保留下单时的旧机估价截图，作为日后申诉依据。转述：社交平台有用户称「补贴券被价保吃掉」，目前未找到对应订单号佐证。推测：若 11-11 当天回收价下调，补贴与价保的差额可能进一步扩大，具体幅度取决于机型。</p>
+        <p>把判断拆成可核对的结构，可以这样列：<strong>①看门槛口径（跨店/本店）；②看凑单品是否有独立用途；③看券是否与价保冲突；④看有效期是否覆盖退货期</strong>。四项都过，才值得为凑单加购。任何一项说不清，直接按原计划下单更稳。</p>
+
+        <div class="verdict">
+          <b>结论修正：</b>满减不是骗局，但「满 300 减 50」的实际收益取决于凑单品。对已经计划买两件以上商品的用户，折扣率可达 83 折；对只买一件的用户，凑单后的真实折扣常在 9 折以上，不如等单品直降。
+        </div>
+      </article>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="sec-head">
+        <h2>优惠券使用指南</h2>
+        <span class="sub">从领券到核销的四步</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="sn">1</span>
+          <div><h3>先领券再看价</h3><p>美团、京东等平台的券分「店铺券」「平台券」「品类券」三层，结算时按顺序抵扣。先领平台券，再看店铺券是否可叠加，顺序错了可能少减 5–10 元。</p></div>
+        </div>
+        <div class="step">
+          <span class="sn">2</span>
+          <div><h3>核对门槛与排除项</h3><p>满减门槛通常按商品原价计算，特价区、预售定金、运费不参与。下单前在「优惠明细」里确认「已减」金额是否与预期一致。</p></div>
+        </div>
+        <div class="step">
+          <span class="sn">3</span>
+          <div><h3>留存截图与订单号</h3><p>以旧换新、返券类活动建议截图估价页和活动规则页。价保申诉时，截图时间戳是主要凭证，11-07 之后京东要求附旧机估价截图。</p></div>
+        </div>
+        <div class="step">
+          <span class="sn">4</span>
+          <div><h3>关注有效期与退款规则</h3><p>返券类优惠在退款时通常一并退回，但赠品需原样退回。山姆续费返券在退款后失效，11-09 生效的 60 元券不补发。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 对照面板 -->
+    <section class="section" id="compare">
+      <div class="sec-head">
+        <h2>会员卡该不该续：两种选择对照</h2>
+        <span class="sub">以山姆卓越会员与普通会员为例</span>
+      </div>
+      <div class="compare">
+        <div class="cmp-col">
+          <h3>普通会员（260 元/年）</h3>
+          <ul>
+            <li>无返券，仅享门店价</li>
+            <li>线上满 99 元免运费</li>
+            <li>会员日折扣不额外叠加</li>
+            <li>适合月均到店 1 次以内</li>
+          </ul>
+        </div>
+        <div class="cmp-col highlight cmp-divide">
+          <h3>卓越会员（680 元/年）</h3>
+          <ul>
+            <li>续费返 60 元券，分 3 张</li>
+            <li>2% 消费返现，年上限 500 元</li>
+            <li>线上免运费门槛降至 59 元</li>
+            <li>适合月均消费 2,000 元以上</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-3);margin-top:10px">按 11-09 生效的续费档测算：月消费 2,000 元、年返现 480 元，扣除 680 元年费后净收益约 60 元至 100 元；月消费 800 元以下，卓越会员净亏。</p>
+    </section>
+
+    <!-- 8 FAQ -->
+    <section class="section" id="faq">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <span class="sub">规则、门槛与退款</span>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>外卖满减券和商家折扣能同时用吗？<span class="ic">+</span></summary>
+          <div class="faq-a">多数情况下可以，但顺序不同结果不同。平台券先抵扣，商家折扣按折后价计算。以美团 11 月券包为例，满 30 减 15 与店铺「满 25 减 5」可叠加，实付为原价减 20 元；若店铺折扣是「第二份半价」，则按原价结算后再减，实测差 3–5 元。</div>
+        </details>
+        <details>
+          <summary>以旧换新的补贴券会影响价保吗？<span class="ic">+</span></summary>
+          <div class="faq-a">会。11-07 京东客服确认，旧机回收价与补贴券不计入价保差额。也就是说，若 11-11 商品降价 200 元，价保只按商品实付价比较，补贴部分不补差。建议下单时截图回收估价页，留存工单号。</div>
+        </details>
+        <details>
+          <summary>返券类优惠退款后还回来吗？<span class="ic">+</span></summary>
+          <div class="faq-a">返券通常随订单退款一并失效，且不补发。山姆续费返的 60 元券在退会员费后作废；天猫国际赠品需原样退回，缺件按赠品标价扣款，11 月礼盒标价为 39–69 元不等。</div>
+        </details>
+        <details>
+          <summary>视频会员年卡为什么比月卡便宜这么多？<span class="ic">+</span></summary>
+          <div class="faq-a">年卡 118 元相当于月均 9.8 元，月卡 25 元，差额来自自动续费与提前锁定用户。腾讯视频 11 月联合会员档默认开启自动续费，需在支付后 24 小时内到「我的—连续包月管理」手动关闭，否则次年按 238 元扣费。</div>
+        </details>
+        <details>
+          <summary>咖啡 9.9 券为什么到店不能用？<span class="ic">+</span></summary>
+          <div class="faq-a">券包条款限定自提或外送，门店直接点单不核销。瑞幸 11 月券包写明「限 App 下单」，到店柜台点单按原价。实测周三会员日券后 8.9 元，但需在 App 内提前 10 分钟下单。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 9 用户评论 -->
+    <section class="section" id="reviews">
+      <div class="sec-head">
+        <h2>用户评价</h2>
+        <span class="sub">来自订单页与社群的反馈，保留原始语气</span>
+      </div>
+      <div class="comments">
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">林</span><span class="cmt-name">林小满</span><span class="cmt-rating">★★★★★</span><span class="cmt-time">11-08</span></div>
+          <div class="cmt-body">美团那个满 30 减 15 真能省，我连着三天午饭都用上了，一共省了 45 元。就是<strong>非会员日只能核销一张</strong>，这点要提前看清楚。</div>
+          <div class="cmt-foot"><span>有用 32</span><span>回复 4</span></div>
+        </div>
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">周</span><span class="cmt-name">周舟</span><span class="cmt-rating">★★★☆☆</span><span class="cmt-time">11-07</span></div>
+          <div class="cmt-body">京东以旧换新补贴听着好，实际旧机估价压得厉害，我的 iPhone 13 估 1,240 元，闲鱼同款挂牌 1,450 元。补贴 800 元是<strong>至高</strong>，不是人人都能拿满。</div>
+          <div class="cmt-foot"><span>有用 58</span><span>回复 11</span></div>
+        </div>
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">阿</span><span class="cmt-name">阿树</span><span class="cmt-rating">★★★★☆</span><span class="cmt-time">11-06</span></div>
+          <div class="cmt-body">当当图书满 100 减 50 给娃买了《神奇校车》全 12 册，到手 78 元，比我去年双十一买的还便宜 12 元。特价区确实不参与，购物车里会自动剔除，别白凑。</div>
+          <div class="cmt-foot"><span>有用 21</span><span>回复 2</span></div>
+        </div>
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">M</span><span class="cmt-name">Momo</span><span class="cmt-rating">★★☆☆☆</span><span class="cmt-time">11-05</span></div>
+          <div class="cmt-body">腾讯视频年卡 118 元便宜是便宜，自动续费关起来太隐蔽，我在设置里翻了半天才找到。第二年按 238 扣费，这笔账得算进去。</div>
+          <div class="cmt-foot"><span>有用 44</span><span>回复 7</span></div>
+        </div>
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">陈</span><span class="cmt-name">陈默</span><span class="cmt-rating">★★★★☆</span><span class="cmt-time">11-07</span></div>
+          <div class="cmt-body">盒马移山价买的鲜奶 950ml，从 16.9 降到 12.8，连买一周没变价。纸巾和鸡蛋降幅也实，但<strong>必须 App 内领券</strong>，直接拿货架商品结账还是原价。</div>
+          <div class="cmt-foot"><span>有用 19</span><span>回复 1</span></div>
+        </div>
+        <div class="cmt">
+          <div class="cmt-head"><span class="avatar">老</span><span class="cmt-name">老谢</span><span class="cmt-rating">★★★☆☆</span><span class="cmt-time">11-04</span></div>
+          <div class="cmt-body">说实话满减凑单没意思，为了减 50 加购三四十块用不上的东西，最后闲置在柜子里。我现在只买直降的，省心。</div>
+          <div class="cmt-foot"><span>有用 67</span><span>回复 15</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 相关资讯 -->
+    <section class="section" id="news">
+      <div class="sec-head">
+        <h2>优惠资讯速览</h2>
+        <span class="sub">每条只讲一个变化点</span>
+      </div>
+      <ul class="news-list">
+        <li class="news-item"><span class="nd">11-08</span><span class="nt"><strong>淘宝分区满减生效</strong>，跨店混搭凑单需按分区分别计算门槛</span><span class="ns">规则</span></li>
+        <li class="news-item"><span class="nd">11-08</span><span class="nt">山姆卓越会员续费返 60 元券，分 3 张、限线下门店</span><span class="ns">会员</span></li>
+        <li class="news-item"><span class="nd">11-07</span><span class="nt">京东价保调整，以旧换新补贴不计入差价</span><span class="ns">价保</span></li>
+        <li class="news-item"><span class="nd">11-06</span><span class="nt">当当童书区满 100 减 50，特价区不参与</span><span class="ns">图书</span></li>
+        <li class="news-item"><span class="nd">11-05</span><span class="nt">盒马移山价扩至 1,200 个 SKU，鲜奶降 4.1 元</span><span class="ns">商超</span></li>
+      </ul>
+    </section>
+
+    <!-- 11 相关推荐 -->
+    <section class="section" id="recommend">
+      <div class="sec-head">
+        <h2>相关推荐</h2>
+        <span class="sub">按搜索词聚合</span>
+      </div>
+      <div class="tags">
+        <a href="/#featured">外卖满减券怎么领</a>
+        <a href="/#featured">打车优惠券工作日</a>
+        <a href="/#deep">满减凑单划不划算</a>
+        <a href="/#featured">数码以旧换新补贴</a>
+        <a href="/#compare">山姆会员续费返券</a>
+        <a href="/#featured">咖啡 9.9 元券包</a>
+        <a href="/#featured">视频会员年卡 118</a>
+        <a href="/#featured">图书满减特价区</a>
+        <a href="/#guide">优惠券叠加顺序</a>
+        <a href="/#faq">返券退款规则</a>
+      </div>
+    </section>
+
+    <!-- 12 榜单 -->
+    <section class="section" id="rank">
+      <div class="sec-head">
+        <h2>本周省钱榜</h2>
+        <span class="sub">按实测单笔节省额排序</span>
+      </div>
+      <div class="rank">
+        <div class="rank-item"><span class="rk-num">1</span><div class="rk-main"><div class="rk-title">京东以旧换新 + 补贴</div><div class="rk-sub">旧机 1,240 元 + 补贴 800 元，11-11 截止</div></div><span class="rk-val">省 800</span></div>
+        <div class="rank-item"><span class="rk-num">2</span><div class="rk-main"><div class="rk-title">山姆卓越会员续费</div><div class="rk-sub">返 60 元券 + 2% 返现，11-09 生效</div></div><span class="rk-val">省 60</span></div>
+        <div class="rank-item"><span class="rk-num">3</span><div class="rk-main"><div class="rk-title">当当图书满 100 减 50</div><div class="rk-sub">童书 12 册到手 78 元，至 11-12</div></div><span class="rk-val">省 41</span></div>
+        <div class="rank-item"><span class="rk-num">4</span><div class="rk-main"><div class="rk-title">美团外卖月卡</div><div class="rk-sub">6 张满 30 减 15，月省约 42 元</div></div><span class="rk-val">省 42</span></div>
+        <div class="rank-item"><span class="rk-num">5</span><div class="rk-main"><div class="rk-title">腾讯视频年卡</div><div class="rk-sub">118 元对比月卡 25 元，年省 170 元</div></div><span class="rk-val">省 170</span></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 侧栏 -->
+  <aside class="side-col" aria-label="侧栏导航与推荐">
+    <nav class="side-card" aria-label="栏目导航">
+      <h2>栏目导航</h2>
+      <div class="side-nav" id="sideNav">
+        <a href="/#overview" data-target="overview">资源概览 <span class="n">06</span></a>
+        <a href="/#featured" data-target="featured">今日精选 <span class="n">04</span></a>
+        <a href="/#latest" data-target="latest">最新更新 <span class="n">04</span></a>
+        <a href="/#categories" data-target="categories">分类频道 <span class="n">12</span></a>
+        <a href="/#deep" data-target="deep">深度解析 <span class="n">01</span></a>
+        <a href="/#guide" data-target="guide">使用指南 <span class="n">04</span></a>
+        <a href="/#faq" data-target="faq">常见问题 <span class="n">05</span></a>
+        <a href="/#reviews" data-target="reviews">用户评价 <span class="n">06</span></a>
+        <a href="/#rank" data-target="rank">本周省钱榜 <span class="n">05</span></a>
+      </div>
+    </nav>
+
+    <div class="side-card">
+      <h2>今日热领</h2>
+      <div class="side-list">
+        <div class="side-li"><span class="sl-num">1</span><div class="sl-body"><div class="sl-t">美团 满 30 减 15</div><div class="sl-d">剩 1,842 份 · 今日到期</div></div></div>
+        <div class="side-li"><span class="sl-num">2</span><div class="sl-body"><div class="sl-t">瑞幸 9.9 元券包</div><div class="sl-d">周三会员日可叠加</div></div></div>
+        <div class="side-li"><span class="sl-num">3</span><div class="sl-body"><div class="sl-t">京东 以旧换新补贴</div><div class="sl-d">11-11 23:59 截止</div></div></div>
+        <div class="side-li"><span class="sl-num">4</span><div class="sl-body"><div class="sl-t">山姆 续费返 60 元</div><div class="sl-d">11-09 生效 · 限线下</div></div></div>
+      </div>
+    </div>
+
+    <div class="side-cta">
+      <h2>订阅省钱提醒</h2>
+      <p>每天 8:00 推送当日新增券与截止提醒，只发有实测的。</p>
+      <a href="/#latest" class="sbtn">查看今日更新</a>
+    </div>
+
+    <div class="side-card">
+      <h2>口径说明</h2>
+      <p style="font-size:13px;color:var(--ink-3);line-height:1.7">券数、可用率、覆盖率均为示例数据，用于展示页面结构。实际优惠以各平台活动页与门店规则为准。返券与价保条款可能随版本调整。</p>
+    </div>
+  </aside>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <div class="fb-logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#e0433a"/><path d="M14 26h36v7H14z" fill="#fff"/><path d="M18 37h28v7H18z" fill="#fff" opacity=".85"/><circle cx="32" cy="17" r="6" fill="#ffd9a0"/></svg>
+        <span>福利社zxfuli</span>
+      </div>
+      <p>把满减门槛、券的有效期和到手价摊开写清楚，让每次下单前都有一份可核对的账单。</p>
+    </div>
+    <div class="ft-col">
+      <h3>频道</h3>
+      <ul>
+        <li><a href="/#featured">外卖红包</a></li>
+        <li><a href="/#featured">打车优惠券</a></li>
+        <li><a href="/#featured">数码换新</a></li>
+        <li><a href="/#featured">商超会员</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h3>栏目</h3>
+      <ul>
+        <li><a href="/#latest">最新更新</a></li>
+        <li><a href="/#deep">深度解析</a></li>
+        <li><a href="/#guide">使用指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h3>互动</h3>
+      <ul>
+        <li><a href="/#reviews">用户评价</a></li>
+        <li><a href="/#rank">本周省钱榜</a></li>
+        <li><a href="/#recommend">相关推荐</a></li>
+        <li><a href="/#news">优惠资讯</a></li>
+      </ul>
+    </div>
+    <div class="ft-note">
+      <p><b>数据说明：</b>券数、可用率、折扣与排名均为示例，用于展示页面结构；真实优惠以平台活动页、门店价签与客服工单为准。</p>
+      <p style="margin-top:8px">页面更新：2026-11-08 · 对应正文可核对项：11-08 山姆返券、11-08 淘宝分区满减、11-07 京东价保调整。</p>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 福利社zxfuli · 保留所有权利</span>
+    <span>内容仅供参考，不构成购买建议</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"福利社zxfuli",
+  "description":"优惠券、限时折扣与省钱攻略聚合，提供外卖、出行、数码、商超等场景的实测比价与使用指南。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"外卖满减券和商家折扣能同时用吗？","acceptedAnswer":{"@type":"Answer","text":"多数情况下可以，但顺序不同结果不同。平台券先抵扣，商家折扣按折后价计算。以美团 11 月券包为例，满 30 减 15 与店铺满 25 减 5 可叠加，实付为原价减 20 元。"}},
+    {"@type":"Question","name":"以旧换新的补贴券会影响价保吗？","acceptedAnswer":{"@type":"Answer","text":"会。11-07 京东客服确认，旧机回收价与补贴券不计入价保差额，价保只按商品实付价比较，补贴部分不补差。"}},
+    {"@type":"Question","name":"返券类优惠退款后还回来吗？","acceptedAnswer":{"@type":"Answer","text":"返券通常随订单退款一并失效，且不补发。山姆续费返的 60 元券在退会员费后作废；天猫国际赠品需原样退回。"}},
+    {"@type":"Question","name":"视频会员年卡为什么比月卡便宜这么多？","acceptedAnswer":{"@type":"Answer","text":"年卡 118 元相当于月均 9.8 元，月卡 25 元，差额来自自动续费与提前锁定用户。联合会员档默认开启自动续费，需手动关闭。"}},
+    {"@type":"Question","name":"咖啡 9.9 券为什么到店不能用？","acceptedAnswer":{"@type":"Answer","text":"券包条款限定自提或外送，门店直接点单不核销。瑞幸 11 月券包写明限 App 下单，到店柜台点单按原价。"}}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var searchInput=document.getElementById('searchInput');
+  var searchBtn=document.getElementById('searchBtn');
+  var searchMsg=document.getElementById('searchMsg');
+  var sections=[
+    {id:'overview',keys:['资源概览','满减','外卖','出行','数码','商超','美妆','视频会员']},
+    {id:'featured',keys:['精选','外卖红包','以旧换新','咖啡','图书','优惠券']},
+    {id:'latest',keys:['最新更新','山姆','滴滴','京东','盒马','价保']},
+    {id:'categories',keys:['分类','频道','外卖红包','打车','母婴','电影票']},
+    {id:'deep',keys:['深度解析','凑单','满减','折扣率','价保','规则']},
+    {id:'guide',keys:['指南','步骤','领券','核销','截图']},
+    {id:'compare',keys:['会员卡','山姆','卓越会员','续费']},
+    {id:'faq',keys:['常见问题','叠加','退款','自动续费','价保']},
+    {id:'reviews',keys:['评价','评论','实测','反馈']},
+    {id:'news',keys:['资讯','规则','价保','图书','商超']},
+    {id:'recommend',keys:['推荐','标签','搜索词']},
+    {id:'rank',keys:['榜单','省钱榜','排名']}
+  ];
+  function doSearch(){
+    var q=(searchInput.value||'').trim().toLowerCase();
+    if(!q){searchMsg.className='search-msg';searchMsg.textContent='';return;}
+    var hit=sections.filter(function(s){
+      return s.keys.some(function(k){return k.toLowerCase().indexOf(q)>-1;});
+    });
+    if(hit.length){
+      searchMsg.className='search-msg show';
+      searchMsg.innerHTML='找到 '+hit.length+' 个相关栏目：<a href="/#'+hit[0].id+'" style="color:#b32f28;font-weight:700;text-decoration:underline">前往「'+hit[0].keys[0]+'」</a>';
+    }else{
+      searchMsg.className='search-msg show';
+      searchMsg.textContent='没有找到与「'+q+'」相关的优惠栏目，试试「外卖」「价保」「满减」。';
+    }
+  }
+  searchBtn.addEventListener('click',doSearch);
+  searchInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});
+  searchInput.addEventListener('input',function(){if(!searchInput.value.trim()){searchMsg.className='search-msg';searchMsg.textContent='';}});
+
+  var menuBtn=document.getElementById('menuBtn');
+  var mainNav=document.getElementById('mainNav');
+  menuBtn.addEventListener('click',function(){
+    var open=mainNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  mainNav.addEventListener('click',function(e){
+    if(e.target.tagName==='A' && window.innerWidth<=760){
+      mainNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var toTop=document.getElementById('toTop');
+  function onScroll(){
+    if(window.scrollY>420){toTop.classList.add('show');}else{toTop.classList.remove('show');}
+    highlight();
+  }
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var targets=navLinks.map(function(a){return document.getElementById(a.getAttribute('data-target'));});
+  function highlight(){
+    var pos=window.scrollY+150;
+    var current=-1;
+    targets.forEach(function(t,i){
+      if(t && t.offsetTop<=pos){current=i;}
+    });
+    navLinks.forEach(function(a,i){a.classList.toggle('active',i===current);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+})();
+</script>
+</body>
+  </html>
